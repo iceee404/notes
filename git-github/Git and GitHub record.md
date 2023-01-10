@@ -88,3 +88,4 @@ git status 确定没有更新后就可以去push
 
 `git push {alias别名} {branchName}`
 
+push都是以分支为单位的，所以最后是分支名
