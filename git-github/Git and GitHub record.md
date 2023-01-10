@@ -4,7 +4,7 @@
 
 
 
-> ## 快速使用指南
+> ## Quick Start
 >
 > 1.在文件夹下git init
 > 2.git add . 
