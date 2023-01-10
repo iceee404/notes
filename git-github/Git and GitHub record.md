@@ -2,6 +2,30 @@
 
 分布式版本控制工具 和 代码托管平台
 
+
+
+> ## 快速使用指南
+>
+> 1.在文件夹下git init
+> 2.git add . 
+> 把工作区的文件添加到暂存区
+>
+> 3.git commit -m "xxx"
+> 把暂存区提交到本地库。
+>
+> 4.git push {alias} {branchName}
+> 把本地库提交到对应的远程仓库
+>
+>
+> 如何设置远程仓库呢？
+> git remote add {alias} {https or ssh}
+>
+> git remote -v查看是否设置成功
+
+
+
+
+
 `git init`
 
 ![image-20230110224853544](./img/image-20230110224853544.png)
