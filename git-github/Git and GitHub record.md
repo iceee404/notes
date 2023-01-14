@@ -113,3 +113,28 @@ git status 确定没有更新后就可以去push
 `git push {alias别名} {branchName}`
 
 push都是以分支为单位的，所以最后是分支名
+
+
+
+## 问题
+
+> iceee@192 notes % git push notes main    
+>
+> To github.com:iceee404/notes.git
+>
+>  ! [rejected]    main -> main (non-fast-forward)
+>
+> error: failed to push some refs to 'github.com:iceee404/notes.git'
+>
+> hint: Updates were rejected because the tip of your current branch is behind
+>
+> hint: its remote counterpart. Integrate the remote changes (e.g.
+>
+> hint: 'git pull ...') before pushing again.
+>
+> hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+原因是远程仓库和本地版本不一致。
+
+使用`iceee@192 notes % git push -u notes main -f  `强制push更新远程仓库。
+
