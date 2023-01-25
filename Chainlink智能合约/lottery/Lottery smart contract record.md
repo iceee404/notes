@@ -95,3 +95,63 @@ module.exports = {
 
 
 `yarn add --dev @chainlink/contracts`
+
+
+
+
+
+## mocks：
+
+Mocking主要用于单元测试(Uint test)。被测对象可能依赖于其他（复杂）对象。为了隔离您要测试的对象的行为，您可以用模拟真实对象行为的模拟替换其他对象。如果将真实对象合并到单元测试中是不切实际的，这将很有用。
+
+简而言之，Mocking就是创建模拟真实对象行为的对象。
+
+在这里我们只模拟喂价合约
+
+我们想做一个在本地工作时我们可以使用并且可以控制的假的喂价合约。
+
+写00-mocks-deploy.js部署这个模拟我们本地的chainlink喂价合约。
+
+
+
+
+
+## helper-hardhat-config.js：
+
+不同的网络有不同的变量，我们通过引入helper-hardhat-config.js来使用chainId来获取不同的网络上面的合约address
+
+> 如果一个属性在不同网络需要的不一样，那么他应该写在helper-hardhat-config.js
+>
+> 例如，不同的网络的抽奖entrenceFee不一样，goerli测试网时0.1，但是主网时0.001，这时候就可以写在helper对应chain对象里面的属性
+>
+> ```
+>   
+>   //仅做示范
+>   31337: {      
+>         raffleEntranceFee: ethers.utils.parseEther("0.01"), // 0.01 ETH   
+>     },
+>     5: {
+>         raffleEntranceFee: ethers.utils.parseEther("0.01"), // 0.01 ETH     
+>     },
+> ```
+>
+> 
+
+
+
+
+
+
+
+查看好导入的合约的构造需要什么参数，去00-mocks-deploy.js部署的时候给他传进去：
+
+![image-20230125203759575](./img/image-20230125203759575.png)
+
+```
+ await deploy("VRFCoordinatorV2Mock", {
+            from: deployer,
+            log: true,
+            args: [BASE_FEE, GAS_PRICE_LINK],
+        })
+```
+
